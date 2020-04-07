@@ -166,7 +166,6 @@ public class CommandsTest {
         assertEquals(FAILED, result.getStatus());
     }
 
-
     @Test
     public void test_createTable_success() throws DatabaseException {
         when(env.getDatabase(DB_NAME)).thenReturn(Optional.of(database));
