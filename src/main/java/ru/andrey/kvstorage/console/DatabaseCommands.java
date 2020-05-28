@@ -7,7 +7,7 @@ public enum DatabaseCommands {
                 throw new IllegalArgumentException("Requires 1 argument");
             }
 
-            return new CreateDatabase(environment, args[0]);
+            return new CommandCreateDatabase(environment, args[0]);
         }
     }, CREATE_TABLE {
         public DatabaseCommand getCommand(ExecutionEnvironment environment, String... args) {
@@ -15,7 +15,7 @@ public enum DatabaseCommands {
                 throw new IllegalArgumentException("Requires 2 arguments");
             }
 
-            return new CreateTable(environment, args);
+            return new CommandCreateTable(environment, args);
         }
     }, UPDATE_KEY {
         public DatabaseCommand getCommand(ExecutionEnvironment environment, String... args) {
@@ -23,7 +23,7 @@ public enum DatabaseCommands {
                 throw new IllegalArgumentException("Requires 4 arguments");
             }
 
-            return new UpdateKey(environment, args);
+            return new CommandUpdateKey(environment, args);
         }
     }, READ_KEY {
         public DatabaseCommand getCommand(ExecutionEnvironment environment, String... args) {
@@ -31,7 +31,7 @@ public enum DatabaseCommands {
                 throw new IllegalArgumentException("Requires 3 arguments");
             }
 
-            return new ReadKey(environment, args);
+            return new CommandReadKey(environment, args);
         }
     };
 

@@ -14,10 +14,6 @@ public class DatabaseServer {
         this.env = env;
     }
 
-    public static void main(String[] args) {
-
-    }
-
     DatabaseCommandResult executeNextCommand(String commandText) {
         if (commandText == null) {
             return DatabaseCommandResult.error("Empty command");

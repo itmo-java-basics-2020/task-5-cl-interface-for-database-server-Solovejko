@@ -24,42 +24,42 @@ public interface DatabaseCommandResult {
         return new DatabaseCommandResultClass(DatabaseCommandStatus.FAILED, message);
     }
 
-    class DatabaseCommandResultClass implements DatabaseCommandResult {
-        private final DatabaseCommandStatus status;
-        private final String value;
+}
 
-        private DatabaseCommandResultClass(DatabaseCommandStatus status, String value) {
-            this.status = status;
-            this.value = value;
-        }
+class DatabaseCommandResultClass implements DatabaseCommandResult {
+    private final DatabaseCommandStatus status;
+    private final String value;
 
-        @Override
-        public Optional<String> getResult() {
-            if (isSuccess()) {
-                return Optional.of(value);
-            }
-
-            return Optional.empty();
-        }
-
-        @Override
-        public DatabaseCommandStatus getStatus() {
-            return status;
-        }
-
-        @Override
-        public boolean isSuccess() {
-            return status == DatabaseCommandStatus.SUCCESS;
-        }
-
-        @Override
-        public String getErrorMessage() {
-            if (isSuccess()) {
-                return null;
-            }
-
-            return value;
-        }
+    DatabaseCommandResultClass(DatabaseCommandStatus status, String value) {
+        this.status = status;
+        this.value = value;
     }
 
+    @Override
+    public Optional<String> getResult() {
+        if (isSuccess()) {
+            return Optional.of(value);
+        }
+
+        return Optional.empty();
+    }
+
+    @Override
+    public DatabaseCommandStatus getStatus() {
+        return status;
+    }
+
+    @Override
+    public boolean isSuccess() {
+        return status == DatabaseCommandStatus.SUCCESS;
+    }
+
+    @Override
+    public String getErrorMessage() {
+        if (isSuccess()) {
+            return null;
+        }
+
+        return value;
+    }
 }

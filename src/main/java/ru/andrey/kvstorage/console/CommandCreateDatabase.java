@@ -1,10 +1,10 @@
 package ru.andrey.kvstorage.console;
 
-public class CreateDatabase implements DatabaseCommand {
+public class CommandCreateDatabase implements DatabaseCommand {
     private final ExecutionEnvironment environment;
     private final String name;
 
-    public CreateDatabase(ExecutionEnvironment environment, String name) {
+    public CommandCreateDatabase(ExecutionEnvironment environment, String name) {
         this.environment = environment;
         this.name = name;
     }
